@@ -18,6 +18,7 @@
         </tr>
       </thead>
       <tbody>
+      <%# Loop through the line items of the order and render each item from _item.html.erb %>
         <% @order.line_items.each do |item| %>
           <%= render 'item', item: item %>
         <% end %>
@@ -28,6 +29,7 @@
             TOTAL:
           </th>
           <th>
+          <%# displays the order total %>
             <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
           </th>
         </tr>

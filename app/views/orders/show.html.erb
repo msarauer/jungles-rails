@@ -36,7 +36,8 @@
       </tfoot>
     </table>
   </div>
-
+  <%# display the users email %>
+  <p>Your order invoice will be sent to <%= @order.email %>.</p>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>

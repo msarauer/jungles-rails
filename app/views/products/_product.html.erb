@@ -16,6 +16,7 @@
       Details &raquo;
     <% end %>
   </footer>
+<%# if sold out show this tag %>
 <% if product.quantity === 0 %>
   <aside class="sold-out-tag">
     SOLD OUT!

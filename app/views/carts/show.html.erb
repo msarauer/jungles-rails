@@ -4,6 +4,7 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
+  <%# if the cart is empty, then show an alert and link to home %>
 <% if enhanced_cart.length < 1 %>
   <div class="alert alert-danger" role="alert">
     It looks like nothing has been added to your cart yet.

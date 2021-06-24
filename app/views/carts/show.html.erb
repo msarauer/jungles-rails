@@ -5,8 +5,10 @@
     <h1>My Cart</h1>
   </header>
 <% if enhanced_cart.length < 1 %>
-  <p>It looks like nothing has been added to your cart yet.</p>
-  <%= link_to 'Home', :root %>
+  <div class="alert alert-danger" role="alert">
+    It looks like nothing has been added to your cart yet.
+  </div>
+  <%= link_to 'Back to Shop', :root, :class => "btn btn-primary" %>
 <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # this method is not currently used. It would be used to restrict a guest access to certain pages
   def authorize
     redirect_to '/login' unless current_user
   end

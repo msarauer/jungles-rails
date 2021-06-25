@@ -1,9 +1,24 @@
 <h1>Login</h1>
 
-<%= form_tag '/login' do %>
-
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+<%= form_tag '/login', class:"form-inline" do %>
+<div class="form-group">
+   <%= label_tag :email, "Email:" %>
+   <%= text_field_tag :email, "", class: "form-control", placeholder: "Email" %>
+</div>
+<div class="form-group">
+  <%= label_tag :password, "Password:" %>
+  <%= password_field_tag :password, "", class: "form-control", placeholder: "Password"  %>
+</div>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
 
 <% end %>
+<% if false %>
+<div class="form-group">
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+  <% end %>

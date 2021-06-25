@@ -1,12 +1,26 @@
 <h1>Register</h1>
-
+<div class="container">
 <%= form_for :user, url: '/users' do |f| %>
-
-  First Name: <%= f.text_field :first_name %>
-  Last Name: <%= f.text_field :last_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-
+  <div class="form-group">
+    <%= f.label :first_name, "First name:"%>
+    <%= f.text_field :first_name, class: "form-control", placeholder: "First name" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, "Last name:" %>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Confirm Password:" %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password" %>
+  </div>
+    <%= f.submit "Submit", class: "btn btn-default"  %>
 <% end %>
+</div>

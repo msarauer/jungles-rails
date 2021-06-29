@@ -55,7 +55,32 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password is too short (minimum is 3 characters)")
       expect(@user).to_not be_valid
     end
+  end
+  describe '.authenticate_with_credentials' do
+    # examples for this class method here
+    it("should return the user if the email and password match") do
+      @user = User.create({first_name: "Mitchel", last_name: "Sara", email: 'a@test.com', password: "asd12", password_confirmation: "asd12"})
+      value = User.authenticate_with_credentials('a@test.com', 'asd12')
+      expect(value).to eq(@user)
+    end
 
+    it("should return the user if the email and password match with whitespace added around the email") do
+      @user = User.create({first_name: "Mitchel", last_name: "Sara", email: 'a@test.com', password: "asd12", password_confirmation: "asd12"})
+      value = User.authenticate_with_credentials('  a@test.com', 'asd12')
+      expect(value).to eq(@user)
+    end
+
+    it("should return the user if the email and password match with the email entered in the wrong case") do
+      @user = User.create({first_name: "Mitchel", last_name: "Sara", email: 'a@test.com', password: "asd12", password_confirmation: "asd12"})
+      value = User.authenticate_with_credentials('  A@tEst.com', 'asd12')
+      expect(value).to eq(@user)
+    end
+
+    it("should return nil if the email and password do not match") do
+      @user = User.create({first_name: "Mitchel", last_name: "Sara", email: 'a@test.com', password: "asd12", password_confirmation: "asd12"})
+      value = User.authenticate_with_credentials('as@test.com', 'assd12')
+      expect(value).to eq(nil)
+    end
   end
 end
 
